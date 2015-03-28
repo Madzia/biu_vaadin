@@ -1,0 +1,8 @@
+# auto created files
+.classpath
+*~    
+.project
+
+# folders
+.settings/
+target/
