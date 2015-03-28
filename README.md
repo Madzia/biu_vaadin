@@ -9,7 +9,7 @@ W celu uruchomienia projektu wystarczy :
 
 Poprzez wpisanie w terminalu:
 
-```sh
+```js
 git clone https://github.com/Madzia/biu_vaadin.git
 cd biu_vaadin
 mvn jetty:run
@@ -19,10 +19,10 @@ następnie wejść na stronę `localhost:8080`
 
 ##Wymagania
 
-*Vaadin Framework 7.4.2
-*Java SE 7 (lub nowsza)
+* Vaadin Framework 7.4.2
+* Java SE 7 (lub nowsza)
 
 ##Użyte gotowe rozwiązania
 
-*MongoDB Container Add-on `https://vaadin.com/directory#addon/mongodb-container-addon`
+* MongoDB Container Add-on `https://vaadin.com/directory#addon/mongodb-container-addon`
 

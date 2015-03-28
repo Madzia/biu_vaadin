@@ -12,8 +12,8 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@Theme("valo")
-//@Theme("mytheme")
+//@Theme("valo")
+@Theme("mytheme")
 @SuppressWarnings("serial")
 public class MyVaadinUI extends UI
 {

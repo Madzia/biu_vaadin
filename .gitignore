@@ -3,6 +3,8 @@
 *.*~    
 *~    
 .project
+Makefile
+Procfile
 
 # folders
 .settings/
