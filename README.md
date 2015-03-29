@@ -25,4 +25,5 @@ następnie wejść na stronę `localhost:8080`
 ##Użyte gotowe rozwiązania
 
 * MongoDB Container Add-on `https://vaadin.com/directory#addon/mongodb-container-addon`
+* Valo design `https://vaadin.com/valo#design`
 
