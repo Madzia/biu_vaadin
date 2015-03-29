@@ -1,15 +1,30 @@
-package v2;
+package v2.ui;
+
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.TextField;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.server.UserError;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.RichTextArea;
+import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 
-public class LoginPanel extends VerticalLayout implements View  {
+@SuppressWarnings("serial")
+public class RegisterPanel extends VerticalLayout implements View  {
 	//String login;
 	//String password;
 	//Integer passwordTest;
@@ -18,11 +33,11 @@ public class LoginPanel extends VerticalLayout implements View  {
 	//TODO
 	//private TestIcon testIcon = new TestIcon(140);
 
-	public LoginPanel() {
+	public RegisterPanel(){
         setMargin(true);
         addStyleName("content-common");
 
-        Label h1 = new Label("Sign in");
+        Label h1 = new Label("Register");
         h1.addStyleName("h1");
         addComponent(h1);
 
@@ -38,43 +53,41 @@ public class LoginPanel extends VerticalLayout implements View  {
 
 		//TODO
 		//left.setMargin(new MarginInfo(false, true, false, false));
-		Panel p = new Panel("Sign in");
+		Panel p = new Panel("Register Account");
         final VerticalLayout content = new VerticalLayout();
         p.setContent(content);
         content.setSpacing(true);
         content.setMargin(true);
         
-        HorizontalLayout wrap2 = new HorizontalLayout();
-        wrap2.addStyleName("wrapping");
-        wrap2.setSpacing(true);
-        content.addComponent(wrap2);
-        
-		TextField value = new TextField("Email");
-		value.setInputPrompt("Email");
-		value.addStyleName("inline-icon");
-		wrap2.addComponent(value);
-		
+		TextField value = new TextField("Login");
+		value.setInputPrompt("Login");
+		value.addStyleName("color1");
+		content.addComponent(value);
+
 		value = new TextField("password");
 		value.setInputPrompt("Secret words");
 		//TODO
 		//value.setIcon(FontAwesome.LOCK);
 		value.addStyleName("inline-icon");
-		wrap2.addComponent(value);
+		content.addComponent(value);
 
-		HorizontalLayout wrap = new HorizontalLayout();
-        wrap.addStyleName("wrapping");
-        wrap.setSpacing(true);
-        content.addComponent(wrap);
-        
-		Button value_btn = new Button("Sign in");
+		value = new TextField("rewrite password");
+		value.setInputPrompt("Rewrite password");
+		value.addStyleName("color1");
+		content.addComponent(value);
+
+		value = new TextField("Email");
+		value.setInputPrompt("Email");
+		value.addStyleName("inline-icon");
+		//TODO
+		//value.setIcon(testIcon.get());
+		content.addComponent(value);
+
+		Button value_btn = new Button("Register");
 		// button.addStyleName("primary");
-		wrap.addComponent(value_btn);
+		content.addComponent(value_btn);
 
 		value_btn = new Button("Cancel");
-		// button.addStyleName("primary");
-		wrap.addComponent(value_btn);
-
-		value_btn = new Button("Register");
 		// button.addStyleName("primary");
 		content.addComponent(value_btn);
         return p;

@@ -1,12 +1,7 @@
-package model;
-
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
+package v2.model;
 
 public class Person {
-	@Id
-    private ObjectId id;
-    private String mail;
+	private String mail;
     private String password;
     private Pet pet;
 
@@ -16,10 +11,6 @@ public class Person {
     public Person(String mail, String password) {
         this.mail = mail;
         this.password = password;
-    }
-    
-    public ObjectId GetId() {
-        return id;
     }
     
     public void SetPassword(String password) {

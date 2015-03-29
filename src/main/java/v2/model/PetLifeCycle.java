@@ -1,9 +1,6 @@
-package model;
+package v2.model;
 
 import java.util.Date;
-
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
 
 public class PetLifeCycle {
 	private int learning;

@@ -1,9 +1,4 @@
-package model;
-
-import java.util.Date;
-
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
+package v2.model;
 
 public class Pet {
 	//? private String id;
