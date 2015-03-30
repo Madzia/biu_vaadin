@@ -1,14 +1,14 @@
-package v2.model;
+package v2.data;
 
 import java.util.Date;
 
-public class message {
+public class Message {
 
     private String author;
     private String text;
     private Date timeStamp;
 
-    public message(String author, String text, Date timeStamp) {
+    public Message(String author, String text, Date timeStamp) {
         this.author = author;
         this.text = text;
         this.timeStamp = timeStamp;
