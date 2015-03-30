@@ -55,7 +55,7 @@ public class SignInUserListener implements Button.ClickListener {
 				        return;
 					}
 					else {
-				        Notification.show("Bad password.");
+				        Notification.show("Bad login or password.");
 				        return;
 			        }
 				}
