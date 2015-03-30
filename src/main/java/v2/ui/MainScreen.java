@@ -37,7 +37,7 @@ public class MainScreen extends CustomComponent {
 
 
 //[TODO]
-//        navigator.addView("signout", LogoutPanel.class);
+        navigator.addView("j_spring_security_logout", LogoutPanel.class);
         navigator.addView("chat", ChatPanel.class);
 
         final String f = UI.getCurrent().getPage().getUriFragment();
@@ -85,7 +85,7 @@ public class MainScreen extends CustomComponent {
     //method was from [https://vaadin.com/valo#design] and changed
     CssLayout buildMenu() {
        	// Add items
-       	menuItems.put("signout", "Sign out");
+       	menuItems.put("j_spring_security_logout", "Sign out");
        	menuItems.put("chat", "Chat");
        	final HorizontalLayout top = new HorizontalLayout();
        	top.setWidth("100%");
