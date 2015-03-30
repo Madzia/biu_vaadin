@@ -37,6 +37,11 @@ public class InitializeContextListener extends AbstractServletContextListener {
                     "TEXT VARCHAR(255)," +
                     "AUTHOR VARCHAR(255)," +
                     "`TIME_STAMP` TIME);");
+            createStatement.execute("CREATE TABLE IF NOT EXISTS PERSON(" +
+                    "ID BIGINT AUTO_INCREMENT PRIMARY KEY," +
+                    "LOGIN VARCHAR(255)," +
+                    "EMAIL VARCHAR(255)," +
+                    "PASSWORD VARCHAR(255));");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         } finally {

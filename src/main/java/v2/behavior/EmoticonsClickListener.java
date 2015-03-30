@@ -1,12 +1,11 @@
 package v2.behavior;
 
 import com.vaadin.server.FontAwesome;
-import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 
+@SuppressWarnings("serial")
 public class EmoticonsClickListener implements Button.ClickListener {
 
 	private TextArea input;

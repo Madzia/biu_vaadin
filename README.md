@@ -1,28 +1,29 @@
 # biu_vaadin
 Bogaty Interfejs Użytkownika - Projekt Vaadin - Chat
 
-##Uruchomienie
+##Lauch
 
-W celu uruchomienia projektu wystarczy :
+In case of project lauch you need to :
 
-### sklonować repozytorium oraz uruchomić projekt
+### clone my repository and build/run project
 
-Poprzez wpisanie w terminalu:
+by writing in shell:
 
 ```js
 git clone https://github.com/Madzia/biu_vaadin.git
 cd biu_vaadin
+mvn install
 mvn jetty:run
 ```
 
-następnie wejść na stronę `localhost:8080`
+in next step visit the webside `localhost:8080`
 
-##Wymagania
+##Requirements
 
 * Vaadin Framework 7.4.2
 * Java SE 7 (lub nowsza)
 
-##Użyte gotowe rozwiązania
+##Used ready-maked solutions:
 
 * Valo design `https://vaadin.com/valo#design`
 * Vaadin tutorial with usage of Broadcast `https://github.com/nfrankel/vaadin7-workshop/tree/v7.2-6`

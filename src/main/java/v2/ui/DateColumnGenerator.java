@@ -10,9 +10,7 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class DateColumnGenerator implements Table.ColumnGenerator {
-
-    //private static final String FORMAT = "dd/MM/yy HH:mm:ss";
-
+	
     @Override
     public Object generateCell(Table source, Object itemId, Object columnId) {
         Item item = source.getItem(itemId);

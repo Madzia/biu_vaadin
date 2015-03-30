@@ -1,18 +1,13 @@
 package v2.ui;
 
 import static com.vaadin.server.Sizeable.Unit.PERCENTAGE;
-
 import java.util.Collection;
 import java.util.Iterator;
-
 import v2.behavior.EmoticonsClickListener;
 import v2.behavior.SendMessageClickListener;
-
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.server.ThemeResource;
-import com.vaadin.server.VaadinRequest;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
@@ -22,19 +17,14 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.MenuBar;
-import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.PopupView;
 import com.vaadin.ui.PopupView.Content;
 
+@SuppressWarnings("serial")
 public class ChatPanel extends HorizontalLayout implements View{
 	public ChatPanel() {
         setMargin(true);
         addStyleName("content-common");
-
-        Label h1 = new Label("Chat");
-        h1.addStyleName("h1");
-        addComponent(h1);
 
         VerticalLayout row = new VerticalLayout();
         row.setWidth("100%");
@@ -46,7 +36,6 @@ public class ChatPanel extends HorizontalLayout implements View{
 	
 	Panel init(){
 		Panel p = new Panel("Welcome in chat");
-        //final VerticalLayout content = new VerticalLayout();
         
         HorizontalLayout menuBar = new HorizontalLayout();
         menuBar.addStyleName("wrapping");
@@ -55,7 +44,6 @@ public class ChatPanel extends HorizontalLayout implements View{
         MessageTable table = new MessageTable();
         TextArea messageArea = new TextArea();
         messageArea.setWidth("30em");
-        //messageArea.setWidth(95, PERCENTAGE);
         
         Panel p2 = new Panel("Chat");
         p2.addStyleName("scroll-divider");
@@ -69,12 +57,8 @@ public class ChatPanel extends HorizontalLayout implements View{
         p2.setContent(right);
         FromTableToLabel(table, right);
         Button sendButton = new Button("Send");
-        sendButton.addClickListener(new SendMessageClickListener(table, messageArea));
-        
-        
-//        final MenuBar settings = new MenuBar();
-//        settings.addStyleName("user-menu");
-//        //Button emoticons = new Button("Send");
+        sendButton.addClickListener(new SendMessageClickListener(table, right, messageArea));
+
         CssLayout menu = new CssLayout();
         
         VerticalLayout icons = InitEmoticons(messageArea);
@@ -97,13 +81,9 @@ public class ChatPanel extends HorizontalLayout implements View{
 	        }
         });
         menu.addComponent(pv);
-        //menu.addComponent(settings);
-        //menu.addComponent(settings);
-       // emoticons.addClickListener(new EmoticonsClickListener(messageArea));
         HorizontalLayout lowerBar = new HorizontalLayout(messageArea, menu, sendButton);
         lowerBar.setWidth(95, PERCENTAGE);
         lowerBar.setSpacing(true);
-        //from table to label!!
         
         VerticalLayout mainLayout = new VerticalLayout(menuBar, p2, lowerBar);
         mainLayout.setWidth(90, PERCENTAGE);
@@ -112,14 +92,12 @@ public class ChatPanel extends HorizontalLayout implements View{
         mainLayout.setSpacing(true);
         mainLayout.setMargin(true);
         p.setContent(mainLayout);
-        //mainLayout.setSizeFull();
         return p;
 	}
 
 	private void FromTableToLabel(MessageTable table, VerticalLayout vl) {
-		// TODO Auto-generated method stub
 		Collection<?> list = table.getItemIds();
-		Iterator itr = list.iterator();
+		Iterator<?> itr = list.iterator();
 		Label val;
 		String str;
 		String[] splited_str;
@@ -127,7 +105,6 @@ public class ChatPanel extends HorizontalLayout implements View{
 		
 		StringBuffer buf;
 	      while(itr.hasNext()) {
-	  		//val = new Label(
 	  		str = table.getItem(itr.next()).toString();
 	  		str = checking_string_emoticons(str);
 	  		splited_str = str.split("\\|");
@@ -143,7 +120,6 @@ public class ChatPanel extends HorizontalLayout implements View{
 	}
 
 	private String checking_string_emoticons(String str) {
-		// TODO Auto-generated method stub
 	    String[] icons = {"<LOCK>","<ANDROID>","<APPLE>","<ARROW_LEFT>","<BUG>","<GLOBE>"};
 		while (str.contains(icons[0]))
 			str = str.replace(icons[0], FontAwesome.LOCK.getHtml());		
@@ -162,7 +138,6 @@ public class ChatPanel extends HorizontalLayout implements View{
 
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
 		
 	}
 	private VerticalLayout InitEmoticons(TextArea messageArea){

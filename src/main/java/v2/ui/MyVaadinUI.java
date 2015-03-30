@@ -2,16 +2,15 @@ package v2.ui;
 
 import v2.push.BroadCastListener;
 import v2.push.BroadCaster;
+
 import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Push;
 import com.vaadin.annotations.Title;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.UI;
 import com.vaadin.annotations.Theme;
-import v2.behavior.LoginClickListener;
-import com.vaadin.ui.*;
-
-import static com.vaadin.server.Sizeable.Unit.PIXELS;
 
 @SuppressWarnings("serial")
 @Title("Vaadin Workshop")
@@ -22,21 +21,20 @@ public class MyVaadinUI extends UI implements BroadCastListener<Object> {
 
     @Override
     protected void init(VaadinRequest request) {
-    CssLayout root = new CssLayout();
-    Button button = new Button("Join");
-    root.addComponent(new Label("Please enter credentials"));
-    TextField loginField = new TextField("Name:");
-    loginField.setWidth(250, PIXELS);
-    root.addComponent(loginField);
-    root.addComponent(button);
-    button.addClickListener(new LoginClickListener(loginField));
-    BroadCaster.register(this);
-    setContent(root);
+    	setContent(new LoginPanel());
+	    BroadCaster.register(this);
 }
 
     @Override
     public void onMessage(Object object) {
-        access(() -> setContent(new MainScreen()));
+    	 access(() -> setContent(new MainScreen()));
+//        access(() -> {
+//            MenuLayout root = new MenuLayout();
+//            ComponentContainer viewDisplay = root.getContentContainer();
+//        	Navigator navigator = new Navigator(UI.getCurrent(), viewDisplay);
+//            navigator.addView("chat", ChatPanel.class);
+//            navigator.navigateTo("chat");
+//        });
     }
 
     @Override

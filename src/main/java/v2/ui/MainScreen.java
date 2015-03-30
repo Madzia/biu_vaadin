@@ -4,27 +4,16 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
-import v2.behavior.SendMessageClickListener;
-import v2.data.Message;
-
-import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinSession;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
-import static com.vaadin.server.Sizeable.Unit.PERCENTAGE;
-import static com.vaadin.ui.Table.ColumnHeaderMode.HIDDEN;
-
 @SuppressWarnings("serial")
 public class MainScreen extends CustomComponent {
-	
-	private boolean testMode = false;
 
     MenuLayout root = new MenuLayout();
     ComponentContainer viewDisplay = root.getContentContainer();
@@ -39,11 +28,10 @@ public class MainScreen extends CustomComponent {
     public MainScreen() {
        
     	menu.setWidth("320px");
-
+    	menu.setHeight("100%");
         root.setWidth("100%");
 
         root.addMenu(buildMenu());
-        //addStyleName(ValoTheme.UI_WITH_MENU);
 
         navigator = new Navigator(UI.getCurrent(), viewDisplay);
 
@@ -53,11 +41,11 @@ public class MainScreen extends CustomComponent {
         navigator.addView("chat", ChatPanel.class);
 
         final String f = UI.getCurrent().getPage().getUriFragment();
-        if (f == null || f.equals("")) {
+        if (f == null || f.equals("") || f.contains("!chat")) {
             navigator.navigateTo("chat");
         }
 
-        navigator.setErrorView(LoginPanel.class);
+        navigator.setErrorView(ChatPanel.class);
 
         navigator.addViewChangeListener(new ViewChangeListener() {
 
@@ -97,9 +85,8 @@ public class MainScreen extends CustomComponent {
     //method was from [https://vaadin.com/valo#design] and changed
     CssLayout buildMenu() {
        	// Add items
-       	menuItems.put("signin", "Sign in");
+       	menuItems.put("signout", "Sign out");
        	menuItems.put("chat", "Chat");
-       	menuItems.put("forms", "Forms");
        	final HorizontalLayout top = new HorizontalLayout();
        	top.setWidth("100%");
        	top.setDefaultComponentAlignment(Alignment.MIDDLE_LEFT);
@@ -119,7 +106,7 @@ public class MainScreen extends CustomComponent {
        	showMenu.setIcon(FontAwesome.LIST);
        	menu.addComponent(showMenu);
        	final Label title = new Label( 
-       			"<h3>Vaadin <strong>Tamagotchi</strong></h3>", ContentMode.HTML);
+       			"<h3>Vaadin <strong>Chat</strong></h3>", ContentMode.HTML);
        	title.setSizeUndefined();
        	top.addComponent(title);
        	top.setExpandRatio(title, 1);
