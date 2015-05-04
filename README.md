@@ -1,5 +1,5 @@
 # biu_vaadin
-Bogaty Interfejs Użytkownika - Projekt Vaadin - Chat
+"Bogaty Interfejs Użytkownika" - Project Vaadin - Chat
 
 ##Lauch
 
@@ -21,7 +21,7 @@ in next step visit the webside `localhost:8080`
 ##Requirements
 
 * Vaadin Framework 7.4.2
-* Java SE 7 (lub nowsza)
+* Java SE 7 (or newer)
 
 ##Used ready-maked solutions:
 
